@@ -1,0 +1,20 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+ controllerName="stk.starterkit.controller.CreateCustomer" displayBlock="true">
+            <Page xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="CreateCustomer" title="Creat Customer"
+            showNavButton="true" navButtonPress="handleNavButtonPress">
+
+
+ <Button id = "onConfirm" press= "_onConfirm" icon="sap-icon://save" type="Success"/>
+<VBox class="sapUiSmallMargin">  
+
+    <Label text="ID:"/>
+    <Input id="CustomerID" placeholder="Enter Customer ID"/>
+
+    <Label text="Name:" class="sapUiSmallMarginTop"/>
+    <Input id="CompanyName" placeholder="Enter Company Name"/>
+
+</VBox>
+
+
+            </Page>
+</mvc:View>

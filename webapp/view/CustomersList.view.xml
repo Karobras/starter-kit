@@ -1,0 +1,52 @@
+<mvc:View controllerName="stk.starterkit.controller.CustomersList"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m">
+
+   
+    <Page id="page" title="{i18n>title}">
+    <content>  
+    <Carousel id=  "carousel" loop="true">
+    <pages>
+
+        <Image width="40%" height="20%" src="https://tse4.mm.bing.net/th/id/OIP.N1uZBBKHG0c8Gk1lgN60ZAHaEK?rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3" id="image"/>
+    
+        <Image width="60%" height="40%" src="https://tse4.mm.bing.net/th/id/OIP.N1uZBBKHG0c8Gk1lgN60ZAHaEK?rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3" id="image2"/>
+    </pages>
+  <customLayout>
+    <CarouselLayout id = "carouselLayout" visiblePagesCount="2"  class="redText" />
+    </customLayout>
+    </Carousel> 
+    </content>
+     <Button id = "onSortByCountry" press="onSortByCountry" icon="sap-icon://sort" />
+     <Button id = "onCreateCustomer" press="_onCreateCustomer" icon="sap-icon://add" text="Create" class="sapUiMediumMarginBegin sapUiTinyMarginBottom myclass" />
+     <Button id = "onPressGenerateExcelReport" press="onPressGenerateExcelReport" icon="sap-icon://cause" text="Export to Excel"/>
+   <Button id = "onPerformance" press="onPerformance"  text="Performance"/>
+  
+   <Input id = "companyNameFilterInput" submit = "setCompanyFilter"  />
+    <Table items="{/Customers}"  id="customerTable" class="redText">
+    <columns>
+    <Column id="companyNameColumn">
+    <Label text="{i18n>companyName}" id="companyNameLabel"/>
+    </Column>
+    <Column id="countryColumn">
+    <Label text="{i18n>country}" id="countryLabel"/>
+     </Column>
+
+      <Column id= "customerIdColumn">
+    <Label text="{i18n>customerId}" id="customerIdLabel"/>
+      </Column>
+    </columns>
+    <items>
+    <ColumnListItem id="CustomerListItem"  type="Navigation" press = "onCustomerPress" class="redText" > 
+    <Text text="{CompanyName}" id="companyNameText"/>
+    <!-- <Text text="{Country}" id="countryText"/> -->
+    <Text text="{CustomerID}" id="customerIdText"/>
+  
+    <Text id="companyNameText2" text ="{= ${Country} === 'USA' ? 'United States of America' : (${Country} === 'UK' ? 'United Kingdom' : ${Country}) }" />
+ 
+    </ColumnListItem>
+    </items>
+    </Table>
+     </Page>
+</mvc:View>

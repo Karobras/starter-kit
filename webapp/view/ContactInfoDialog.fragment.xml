@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+<Dialog id='ContactInfoDialog' title="{i18n>Contact Info}"> 
+       <content> 
+       <VBox class="sapUiSmallMarginBottom"> 
+   <Label text="{i18n>Name:}" id="NameLabel"/>
+   <Label text= "{CompanyName}" id="Name"/> 
+</VBox>
+<VBox class="sapUiSmallMarginBottom">
+   <Label text="{i18n>Contact:}" id="ContactLabel"/>
+         <Label text= "{ContactName}" id="Contact" /> 
+</VBox>
+   
+<VBox class="sapUiSmallMarginBottom">
+      <Label text="{i18n>Address:}" id="AddressLabel"/>
+         <Label text= "{Address}" id="Address"  /> 
+</VBox>
+<VBox class="sapUiSmallMarginBottom">
+     <Label text="{i18n>Phone}" id="PhoneLabel"/>
+         <Label text= "{Phone}" id="Phone" /> 
+</VBox>
+
+            </content>
+              <endButton><Button id = "onClose" press="_onClose" icon="sap-icon://close" text="{i18n>Close}" width="40%" type="Reject" /></endButton>
+ </Dialog> </core:FragmentDefinition>

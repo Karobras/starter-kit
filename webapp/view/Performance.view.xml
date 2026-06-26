@@ -1,0 +1,35 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+ controllerName="stk.starterkit.controller.Performance" displayBlock="true">
+            <Page xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="Performance" title="{CustomerID}"
+            showNavButton="true" navButtonPress="handleNavButtonPress">
+    
+   <Table items="{/Customers}"  id="Table3" >
+    <columns>
+    <Column id = "ContantName">
+      <Label text="{i18n>Name}" id="ContactNameLabel"/></Column>
+    <Column  id = "ContactTitle">
+          <Label text="{i18n>Title}" id="ContactTitleLabel"/>
+    </Column>
+    <Column  id = "Orders">
+    </Column>
+    <Column id = "Buttons" >
+        <Label text="{i18n>Actions}" id="ActionsLabel"/>
+        </Column>
+    </columns>
+    <items>
+    <ColumnListItem id= "ListItem2" >
+    <cells>
+    <Text text="{ContactTitle}" id="NameText3"/>
+    <!-- <Text text="{Country}" id="countryText"/> -->
+    <Text text="{ContactName}" id="Text2"/>
+    <Text text="{path: 'Orders', formatter: '.Calculate.ordersCount'}" id = "OrdersText"/>
+      <FlexBox >
+     <Button id="Fire"  press="_oFire" text="Fire"/>
+     <Button id="Motive"  press="_oMotive" text="Motive"/>
+ </FlexBox>
+   </cells> 
+    </ColumnListItem>
+    </items>
+    </Table>
+            </Page>
+</mvc:View>
