@@ -1,3 +1,4 @@
+<!-- Dodanie fragmetu mały popup który się otweira z details -->
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
 <Dialog id='ContactInfoDialog' title="{i18n>Contact Info}"> 
        <content> 
