@@ -1,4 +1,5 @@
-  sap.ui.define([
+// obsługa wglądu dzięki którego dodawało się wpisu do tabeli - CRUD czy jakoś taqk
+sap.ui.define([
       "sap/ui/core/mvc/Controller"
 ], function (Controller) {
     "use strict";
@@ -7,6 +8,7 @@
   
         onInit: function () {
         },
+      // obsługa przycisku wyjścia 
        handleNavButtonPress: function () {
     var oHistory = sap.ui.core.routing.History.getInstance();
     var sPreviousHash = oHistory.getPreviousHash();
@@ -17,6 +19,7 @@
         this.getOwnerComponent().getRouter().navTo("CustomersList", {}, true);
     }   
        },
+      // pobranie wartości z pola input , obranie tworzenia dla Custommers i wstawienie wartości pobranych - zapis i sukress lub error 
        _onConfirm: function (saveEvent) {
  var sId = this.byId("CustomerID").getValue();
 var sName = this.byId("CompanyName").getValue();
