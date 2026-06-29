@@ -15,6 +15,7 @@ function (Controller , Sorter, Filter , FilterOperator, Library, Spreadsheet) {
     //      const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
     //  oRouter.getRoute("CustomerDetails").attachPatternMatched(this._onPatternMatched, this);
         },
+          //// pobranie oRouter (wcześniej zostały dodanir w manifest.json) i nawigacja do innego ekranu z konkretnym parametrem 
        onCustomerPress: function (oEvent) {
         var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         debugger
@@ -22,6 +23,8 @@ function (Controller , Sorter, Filter , FilterOperator, Library, Spreadsheet) {
 
         });
     },
+           //// pobranie oRouter (wcześniej zostały dodanir w manifest.json) i nawigacja do innego ekranu z konkretnym parametrem 
+ 
 //          _onPatternMatched: 
 //         //  async
 //           function (oEvent) {
@@ -32,36 +35,38 @@ function (Controller , Sorter, Filter , FilterOperator, Library, Spreadsheet) {
 //          },
          getNOCustomers: function () { 
             debugger
-            return this.byId("customerTable").getItems().length; 
+            return this.byId("customerTable").getItems().length;  // funkcja zliczania ilości wierszy dla tabeli 
          },
-         
+         // sortowanie po kraju - mamy pole z niego za pomocą getvalue pobieramy wartość - kraju i jest to sortowane 
         onSortByCountry: function() {
-const oTable = this.byId("customerTable");
-            const oBinding = oTable.getBinding("items");
-            let aSorter = [];
+const oTable = this.byId("customerTable"); //Pobiera tabelę z widoku o ID customerTable
+            const oBinding = oTable.getBinding("items"); // Pobiera powiązanie danych (binding) dla elementów tabeli(czyli dane, które są wyświetlane)
+            let aSorter = []; // Tworzy pustą tablicę sorterów (reguł sortowania)
             const bOppositeValue = oBinding.aSorters && oBinding.aSorters[0]
                 ? !oBinding.aSorters[0].bDescending
-                : true;
-            const oSorter = new Sorter("Country", bOppositeValue);
-            aSorter.push(oSorter);
-            oBinding.sort(aSorter);
+                : true; //jeśli tabela już była posortowana → odwróć kolejność jeśli NIE → ustaw sortowanie malejące (true) ! - not czyli !true to false , ? : ; - if... else ...;
+            const oSorter = new Sorter("Country", bOppositeValue); //„stwórz sorter dla pola Country z kierunkiem (asc/desc)” - a wcześniej określalismy w ife asc/des
+            aSorter.push(oSorter); // dodaj sort do listy
+            oBinding.sort(aSorter); // sortuje tabele wedlug regul 
     $("table").removeClass("myClass");
-    },
-   setCompanyFilter: function (oEvent) {
-       let  aFilters = [];
-    const oTable = this.getView().byId("customerTable");
-    const oBinding = oTable.getBinding("items");
-    const sCompanyName = oEvent.getSource().getValue();
+    }, //jQuery - działanie na wyglądzie klasa zdefiniowana w css - działa na tabeli
+  //filtowanie po company name 
+        setCompanyFilter: function (oEvent) {
+       let  aFilters = []; // utworzenie pustej tabeli filteów
+    const oTable = this.getView().byId("customerTable"); //pobranie tabeli z widoku
+    const oBinding = oTable.getBinding("items");   // pobranie bindingu (powiązania danych) tabeli
+    const sCompanyName = oEvent.getSource().getValue(); //pobranie wartosci z pola typu input
     const oFilter = new sap.ui.model.Filter(
         "CompanyName",
         sap.ui.model.FilterOperator.Contains,
         sCompanyName
-    );
-    aFilters.push(oFilter);
-    oBinding.filter(aFilters);
-    const iTableRows = this.getNOCustomers();
-    oCustomersModel.setProperty("/noCustomers", iTableRows );
+    );  // utworzenie filtra dla pola CompanyName
+    aFilters.push(oFilter);  // dodanie filtra do tablicy filtrów
+    oBinding.filter(aFilters); /i/ zastosowanie filtrów do tabel
+    const iTableRows = this.getNOCustomers();    // pobranie liczby rekordów (wywołanie metody)
+    oCustomersModel.setProperty("/noCustomers", iTableRows );   // ustawienie liczby rekordów w modelu
 },
+  //// dodanie przycisku do generowania pliku excel
    onPressGenerateExcelReport: function () {
     const oModel = this.getOwnerComponent().getModel(); // model
     const oServiceUrl = this.getView().getModel().getServiceUrl(); // path
@@ -97,16 +102,18 @@ const oTable = this.byId("customerTable");
         oSheet.destroy();
     });
 },
+          //// dodanie przycisku do generowania pliku excel
+          //// pobranie oRouter (wcześniej zostały dodanir w manifest.json) i nawigacja do innego ekranu 
 _onCreateCustomer: function (oEvent) {
-    var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+    var oRouter = sap.ui.core.UIComponent.getRouterFor(this); /// pobranie routera
     debugger
-    oRouter.navTo("CreateCustomer")
+    oRouter.navTo("CreateCustomer") /// podanie nazwy ekranu 
 },
 onPerformance: function (oEvent) {
     var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
     debugger
     oRouter.navTo("Performance" ) 
-}
+}    //// pobranie oRouter (wcześniej zostały dodanir w manifest.json) i nawigacja do innego ekranu 
     }); 
 });
 
