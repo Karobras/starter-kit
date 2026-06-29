@@ -1,16 +1,17 @@
-sap.ui.define([
-    "sap/ui/core/mvc/Controller",
-    "sap/ui/model/Sorter",
-    "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator",
-    "sap/ui/export/library",
-     "sap/ui/export/Spreadsheet",
+sap.ui.define([ ///W tablicy podajesz ścieżki do modułów, W funkcji dostajesz je jako zmienne, Kolejność MUSI się zgadzać
+    "sap/ui/core/mvc/Controller", //To bazowa klasa kontrolera
+    "sap/ui/model/Sorter", // potrzebe do sortowania 
+    "sap/ui/model/Filter", // potrzebe do filtrowania 
+    "sap/ui/model/FilterOperator", // potrzebe do filtrowania 
+    "sap/ui/export/library", //typy danych i ustawienia eksportu potrzebe do excela
+     "sap/ui/export/Spreadsheet", // Służy do eksportu danych do Excela 
 ],
-function (Controller , Sorter, Filter , FilterOperator, Library, Spreadsheet) { 
-    "use strict";
+function (Controller , Sorter, Filter , FilterOperator, Library, Spreadsheet) {  //jeżeli dodamy wyżej musimy też funkcje dodać tu zgodnie z powyższą kolejnością 
+    "use strict"; // Włącza tryb ścisły JavaScript:
 
+    // tworzenie kontrolera - nazwa musi być taka sama jak nazwa folderu
     return Controller.extend("stk.starterkit.controller.CustomersList", {
-        onInit() {
+        onInit() { // o metoda wywoływana przy starcie widoku - inicjalizacja modelu, ustawienie bindingów, eventy, dane startowe
     //         debugger
     //      const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
     //  oRouter.getRoute("CustomerDetails").attachPatternMatched(this._onPatternMatched, this);
