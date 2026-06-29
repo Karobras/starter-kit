@@ -41,9 +41,12 @@
     <Text text="{ShipName}" id="companyNameText3"/>
     <!-- <Text text="{Country}" id="countryText"/> -->
     <Text text="{OrderID}" id="customerIdText2"/>
+         <!--wyświetlanie długich opisów zamiast skrótow np uk.us-->
     <Text id="companyNameText4" text ="{= ${ShipCountry} === 'USA' ? 'United States of America' : (${ShipCountry} === 'UK' ? 'United Kingdom' : ${ShipCountry}) }" />
-       <Text text="{ parts: [{ path: 'Employee/FirstName' }, { path: 'Employee/LastName' }], formatter: '.Formatter.formatName' }" />
-       <Text text="{path: 'OrderDate', type: 'sap.ui.model.type.DateTime', formatOptions: {style: 'medium'}}" id="orderDateText"/>    
+    <!-- użycie formatera przy imieniu i nazwisku-->
+     <Text text="{ parts: [{ path: 'Employee/FirstName' }, { path: 'Employee/LastName' }], formatter: '.Formatter.formatName' }" />
+      <!-- konwersja wygladu daty-->
+     <Text text="{path: 'OrderDate', type: 'sap.ui.model.type.DateTime', formatOptions: {style: 'medium'}}" id="orderDateText"/>    
     </ColumnListItem>
     </items>
     </Table>
