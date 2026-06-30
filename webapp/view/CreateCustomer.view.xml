@@ -6,7 +6,7 @@
 
  <Button id = "onConfirm" press= "_onConfirm" icon="sap-icon://save" type="Success"/>
 <VBox class="sapUiSmallMargin">  
-
+ <!---pola typu input -->
     <Label text="ID:"/>
     <Input id="CustomerID" placeholder="Enter Customer ID"/>
 
