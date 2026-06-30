@@ -1,8 +1,10 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+ <!---waże żeby odwołać się do nazwy kontrolera -->
  controllerName="stk.starterkit.controller.CustomerDetails" displayBlock="true">
             <Page xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="CustomerDetails" title="{CustomerID}"
             showNavButton="true" navButtonPress="handleNavButtonPress">
     
+     <!-- pobranie danych z tabeli po customer iD -->  
  <Table items= "CustomerID"  id="customerTable3"> 
     <columns>
     <Column id="companyNameColumn1">
@@ -18,6 +20,7 @@
     </ColumnListItem>
     </items>
     </Table>
+      <!---pobranie danych z tabeli Orders -->
  <Table items= "{Orders}" id="customerTable2"> 
     <columns>
     <Column id="companyNameColumn2">
